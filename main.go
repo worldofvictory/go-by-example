@@ -1,23 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	var altezza uint
-	var peso uint
-	var indice uint
+	var userHeight float64
+	var userKg float64 //float64 = 0.0
 	println("__Calcolatore del indice del peso__")
 
-	println("Insersci la tua altezza")
-	fmt.Scan(&altezza)
+	println("Insersci la tua altezza in centimetri")
+	fmt.Scan(&userHeight)
 
 	println("Insersci il tuo peso")
-	fmt.Scan(&peso)
+	fmt.Scan(&userKg)
 
-	indice = altezza / peso
+	var IMT = userKg / math.Pow(userHeight, 2)
 
-	fmt.Println("Il tuo indice è:", indice)
+	result := fmt.Printf("Il tuo indice è: %.0f%%\n", IMT)
+
+	switch {
+	case result < 16%:
+		fmt.Scan("sei sottopeso")
+
+	case result == 16%:
+		fmt.Scan("sei peso norma")
+
+	}
 
 	// se indice è da 1 a 3 è normale, facciamo o if else oppure proviamo sitch con i varianti . dopo se voglono ripetere tutto un altra volta, qui dobbiamo fare un ciclo ? dopo che ho finito mi deve dare possibilità di fare un altro
-	fmt.Println("Vuoi fare un'altro calcolo?", indice)
+	fmt.Printf("Vuoi fare un'altro calcolo?:")
 }
