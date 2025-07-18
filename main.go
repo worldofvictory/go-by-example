@@ -1,65 +1,23 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
-
-func vals() (int, int) {
-	return 3, 7
-}
+import "fmt"
 
 func main() {
-	i := 3
-	fmt.Print("Write ", i, " as ")
-	switch i {
-	case 1:
-		fmt.Println("one")
-	case 2:
-		fmt.Println("two")
-	case 3:
-		fmt.Println("three")
-	}
-	t := time.Now().Weekday()
-	switch t {
-	case time.Saturday, time.Sunday:
-		fmt.Println("It's the weekend")
-	default:
-		fmt.Println("It's a weekday")
-	}
-	var a [5]int
-	fmt.Println("emp:", a)
+	var altezza uint
+	var peso uint
+	var indice uint
+	println("__Calcolatore del indice del peso__")
 
-	a[0] = 1
-	fmt.Println("emp:", a)
-	fmt.Println("set:", a)
-	fmt.Println("get:", a[0])
+	println("Insersci la tua altezza")
+	fmt.Scan(&altezza)
 
-	fmt.Println("len:", len(a))
-	fmt.Println("##########################")
-	//slice
-	var s []string
-	fmt.Println("uninit:", s, s == nil, len(s) == 0)
-	s = make([]string, 3)
-	fmt.Println("emp:", s, "len:", len(s), "cap:", cap(s))
+	println("Insersci il tuo peso")
+	fmt.Scan(&peso)
 
-	s[1] = "b"
-	s[2] = "c"
-	fmt.Println("set:", s)
-	fmt.Println("get:", s[2])
+	indice = altezza / peso
 
-	fmt.Println("len:", len(s))
-	fmt.Println("##########################")
-	s = append(s, "d")
-	s = append(s, "e", "f")
-	s[5] = "a"
-	fmt.Println("get:", s[0])
-	fmt.Println("apd:", s)
+	fmt.Println("Il tuo indice è:", indice)
 
-	n, l := vals()
-	fmt.Println(n)
-	fmt.Println(l)
-
-	_, c := vals()
-	fmt.Println(c)
+	// se indice è da 1 a 3 è normale, facciamo o if else oppure proviamo sitch con i varianti . dopo se voglono ripetere tutto un altra volta, qui dobbiamo fare un ciclo ? dopo che ho finito mi deve dare possibilità di fare un altro
+	fmt.Println("Vuoi fare un'altro calcolo?", indice)
 }
